@@ -1,7 +1,9 @@
 #!/bin/bash
 # Bash version should >= 4 to be able to run this script.
 
-IMAGE="butomo1989/docker-android"
+IMAGE=""
+
+
 
 if [ -z "$1" ]; then
     read -p "Task (test|build|push|all) : " TASK
@@ -26,6 +28,15 @@ if [ -z "$4" ]; then
 else
     RELEASE=$4
 fi
+
+if [ -z "$5" ]; then
+    read -p "Image name: " RELEASE
+else
+    IMAGE=$5
+fi
+
+
+
 
 declare -A list_of_levels=(
         [5.0.1]=21
